@@ -6,12 +6,12 @@ $action = $_REQUEST['action'];
 $uid = $_REQUEST['uid'];
 $aid = $_REQUEST['aid'];
 
-$api_key = "br1rb0jwdbfik1ll";
-$secret = "25q1ydathzvttwlyab4jk4yh0pg8qisa";
+$key =  $_REQUEST['key'] ; //   "br1rb0jwdbfik1ll";
+$secret =$_REQUEST['secret'];   // "25q1ydathzvttwlyab4jk4yh0pg8qisa";
   
-$authorization_url = "https://kite.trade/connect/login?v=3&api_key=".$api_key.'&redirect_params='.urlencode('uid='.$uid.'&aid='.$aid);
+$authorization_url = "https://kite.trade/connect/login?v=3&api_key=".$key.'&redirect_params='.urlencode('uid='.$uid.'&aid='.$aid);
 	 
-$kite = new KiteConnect($api_key);
+$kite = new KiteConnect($key);
          
 if(isset($_REQUEST['request_token']))
 {
