@@ -1,4 +1,5 @@
 <?php
+require 'vendor/autoload.php'; // include Composer's autoloader
 
 $fulldomain = $_SERVER['SERVER_NAME'];
 $matches = null; 
