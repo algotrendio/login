@@ -6,8 +6,8 @@ $action = $_REQUEST['action'];
 $uid = $_REQUEST['uid'];
 $aid = $_REQUEST['aid'];
 
-$api_key = "ivn336qicv3rclmy";
-$secret = "kn2aro9wc0mtps1hy7uirilt9uvsykr0";
+$api_key = "br1rb0jwdbfik1ll";
+$secret = "25q1ydathzvttwlyab4jk4yh0pg8qisa";
   
 $authorization_url = "https://kite.trade/connect/login?v=3&api_key=".$api_key.'&redirect_params='.urlencode('uid='.$uid.'&aid='.$aid);
 	 
