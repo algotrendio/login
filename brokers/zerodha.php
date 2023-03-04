@@ -8,12 +8,12 @@ $db = $mongo->mqapp2;
 $uid = $_REQUEST['uid'];
 $aid = $_REQUEST['aid'];
 
-$key =  $_REQUEST['key'] ; //   "br1rb0jwdbfik1ll";
+$api_key =   "br1rb0jwdbfik1ll"; //$_REQUEST['key'] ; // 
 $secret =$_REQUEST['secret'];   // "25q1ydathzvttwlyab4jk4yh0pg8qisa";
   
-$authorization_url = "https://kite.trade/connect/login?v=3&api_key=".$key.'&redirect_params='.urlencode('uid='.$uid.'&aid='.$aid);
+$authorization_url = "https://kite.trade/connect/login?v=3&api_key=".$api_key.'&redirect_params='.urlencode('aid='.$aid);
 	 
-$kite = new KiteConnect($key);
+$kite = new KiteConnect($api_key);
 
 if(isset($_REQUEST['request_token']))
 {
