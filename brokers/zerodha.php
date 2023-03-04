@@ -13,6 +13,13 @@ $authorization_url = "https://kite.trade/connect/login?v=3&api_key=".$key.'&redi
 	 
 $kite = new KiteConnect($key);
          
+$client = new MongoDB\Client(
+    'mongodb://web2:windows2020@128.199.16.163:27017/mqapp2'
+);
+
+$db = $client->mqapp2;
+return; 
+
 if(isset($_REQUEST['request_token']))
 {
     $requestToken= $_REQUEST['request_token']; 
