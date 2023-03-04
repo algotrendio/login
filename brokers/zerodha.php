@@ -1,10 +1,12 @@
 <?php
 include_once("kiteconnect.php");
 
-$db = new MongoDB\Client("mongodb://web2:windows2020@128.199.16.163:27017/mqapp2");
-
+$mongo = new MongoDB\Client("mongodb://web2:windows2020@128.199.16.163:27017");
+$db = $mongo->mqapp2;
 $accounts = $db->trading_accounts->find()->toArray();
 print_r($accounts);
+
+return; 
 
 $action = $_REQUEST['action'];
 $uid = $_REQUEST['uid'];
