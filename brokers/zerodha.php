@@ -8,10 +8,10 @@ $db = $mongo->mqapp2;
 $uid = $_REQUEST['uid'];
 $aid = $_REQUEST['aid'];
 
-$api_key =   "br1rb0jwdbfik1ll"; //$_REQUEST['key'] ; // 
+$api_key =  $_REQUEST['key'] ; // "br1rb0jwdbfik1ll"; 
 $secret =$_REQUEST['secret'];   // "25q1ydathzvttwlyab4jk4yh0pg8qisa";
   
-$authorization_url = "https://kite.trade/connect/login?v=3&api_key=".$api_key.'&redirect_params='.urlencode('aid='.$aid);
+$authorization_url = "https://kite.trade/connect/login?v=3&api_key=".$api_key.'&redirect_params='.urlencode('aid='.$aid.'&secret='.$secret.'&key='.$api_key);
 	 
 $kite = new KiteConnect($api_key);
 
