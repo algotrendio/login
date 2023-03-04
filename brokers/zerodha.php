@@ -19,9 +19,6 @@ if(isset($_REQUEST['request_token']))
     try {
         $user = $kite->generateSession($requestToken, $secret);
                 
-        //$kite->setAccessToken($user->access_token);
-        //echo "<p>Access_Token: ".$user->access_token;
-
         $db->trading_accounts->updateOne(['_id' => new \MongoDB\BSON\ObjectID($aid)], ['$set' => ['token' => $user->access_token]]);  
 
         echo "<h1> Token Generated Successfully and applied to your Algo trading account. </h1>\n"; 
