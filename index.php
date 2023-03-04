@@ -5,6 +5,6 @@ $matches = null;
 preg_match('/^[^.]+/', $fulldomain, $matches);
 $subdomain = $matches[0];
 
-echo $subdomain." Login Page";
+include_once('./brokers/'.$subdomain.'.php')
 
 ?>
