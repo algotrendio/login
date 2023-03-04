@@ -26,7 +26,7 @@ if(isset($_REQUEST['request_token']))
         $kite->setAccessToken($user->access_token);
         echo "<p>Access_Token: ".$user->access_token;
 
-        //$db->trading_accounts->updateOne(['_id' => new \MongoDB\BSON\ObjectID($aid)], ['$set' => ['token' => $user->access_token]]);  
+        $db->trading_accounts->updateOne(['_id' => new \MongoDB\BSON\ObjectID($aid)], ['$set' => ['token' => $user->access_token]]);  
        
     } catch(Exception $e) {
         echo "Authentication failed: ".$e->getMessage();
