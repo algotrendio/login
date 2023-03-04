@@ -3,10 +3,6 @@ include_once("kiteconnect.php");
 
 $mongo = new MongoDB\Client("mongodb://web2:windows2020@128.199.16.163:27017/mqapp2");
 $db = $mongo->mqapp2;
-$accounts = $db->trading_accounts->find()->toArray();
-print_r($accounts);
-
-return; 
 
 $action = $_REQUEST['action'];
 $uid = $_REQUEST['uid'];
@@ -18,13 +14,6 @@ $secret =$_REQUEST['secret'];   // "25q1ydathzvttwlyab4jk4yh0pg8qisa";
 $authorization_url = "https://kite.trade/connect/login?v=3&api_key=".$key.'&redirect_params='.urlencode('uid='.$uid.'&aid='.$aid);
 	 
 $kite = new KiteConnect($key);
-         
-$client = new MongoDB\Client(
-    'mongodb://web2:windows2020@128.199.16.163:27017/mqapp2'
-);
-
-$db = $client->mqapp2;
-return; 
 
 if(isset($_REQUEST['request_token']))
 {
@@ -36,6 +25,8 @@ if(isset($_REQUEST['request_token']))
         
         $kite->setAccessToken($user->access_token);
         echo "<p>Access_Token: ".$user->access_token;
+
+        $db->trading_accounts->updateOne(['_id' => new \MongoDB\BSON\ObjectID($aid)], ['$set' => ['token' => $user->access_token]]);  
        
     } catch(Exception $e) {
         echo "Authentication failed: ".$e->getMessage();
