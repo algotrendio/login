@@ -1,14 +1,14 @@
 <?php
 
 $action = $_REQUEST['action'];
-//$uid = $_REQUEST['uid']
-//$aid = $_REQUEST['aid']
+$uid = $_REQUEST['uid']
+$aid = $_REQUEST['aid']
 
 if($action == 'login')
 {
     echo "Zerodha Login Page ";
-    //echo "<p>"
-   // echo $uid
+    echo "<p>";
+    echo $uid;
 }
 else if($action == 'checkout')
 {
