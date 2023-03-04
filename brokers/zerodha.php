@@ -1,6 +1,6 @@
 <?php
 
-include_once("./kiteconnect.php");
+include_once("kiteconnect.php");
 
 $action = $_REQUEST['action'];
 $uid = $_REQUEST['uid'];
