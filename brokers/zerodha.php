@@ -24,7 +24,8 @@ if(isset($_REQUEST['request_token']))
 
         $db->trading_accounts->updateOne(['_id' => new \MongoDB\BSON\ObjectID($aid)], ['$set' => ['token' => $user->access_token]]);  
 
-        echo "<h1> Token Generated Successfully. </h1>\n"; 
+        echo "<h1> Token Generated Successfully and applied to your Algo trading account. </h1>\n"; 
+        echo "\n\n You may close this tab.";
        
     } catch(Exception $e) {
         echo "Authentication failed: ".$e->getMessage();
