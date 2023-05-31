@@ -1,8 +1,8 @@
 <?php
 include_once("kiteconnect.php");
 
-$mongo = new MongoDB\Client("mongodb://web2:windows2020@128.199.16.163:27017/mqapp2");
-$db = $mongo->mqapp2;
+//$mongo = new MongoDB\Client("mongodb://web2:windows2020@128.199.16.163:27017/mqapp2");
+//$db = $mongo->mqapp2;
 
 $aid = $_REQUEST['aid'];
 
@@ -19,10 +19,10 @@ if(isset($_REQUEST['request_token']))
     try {
         $user = $kite->generateSession($requestToken, $secret);
                 
-        $db->trading_accounts->updateOne(['_id' => new \MongoDB\BSON\ObjectID($aid)], ['$set' => ['token' => $user->access_token]]);  
+        //$db->trading_accounts->updateOne(['_id' => new \MongoDB\BSON\ObjectID($aid)], ['$set' => ['token' => $user->access_token]]);  
 
-        echo "<h1> Token Generated Successfully and applied to your Algo trading account. </h1>\n"; 
-        echo "\n\n You may close this tab.";
+        echo "<h1> Token Generated Successfully:". $user->access_token." </h1>\n"; 
+        //echo "\n\n You may close this tab.";
        
     } catch(Exception $e) {
         echo "Authentication failed: ".$e->getMessage();
